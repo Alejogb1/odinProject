@@ -27,7 +27,7 @@ http.createServer(function (req, res) {
             return res.end;
         });
 }
-  else if {
+  else {
   fs.readFile('404.html',function(err,data){
             if (err) throw err;
             res.writeHead(200,{'Content-Type':'text/html'});
