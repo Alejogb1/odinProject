@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-var mongoDB = 'mongodb://127.0.0.1/my_database';
+var mongoDB = 'mongodb://127.0.0.1/my_database';  
 
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
@@ -15,10 +15,19 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var Schema = mongoose.Schema;
 
-var SomeModelSchema = new Schema({
-  a_string: String,
-  a_date: Date
-});
+var schema = new Schema(
+  {
+    name: String,
+    binary: Buffer,
+    living: Boolean,
+    updated: { type: Date, default: Date.now() },
+    age: { type: Number, min: 18, max: 65, required: true },
+    mixed: Schema.Types.Mixed,
+    _someId: Schema.Types.ObjectId,
+    array: [],
+    ofString: [String], // You can also have an array of each of the other types too.
+    nested: { stuff: { type: String, lowercase: true, trim: true } }
+  })
 
 var SomeModel = mongoose.model('SomeModel', SomeModelSchema );
 
@@ -61,4 +70,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//Set up mongoose connection
+var mongoDB = 'mongodb+srv://alejogb:admin@sandbox.8jpmn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 module.exports = app;
+
+//node populatedb mongodb+srv://alejogb:admin@sandbox.8jpmn.mongodb.net/myFirstDatabase?retryWrites=true
