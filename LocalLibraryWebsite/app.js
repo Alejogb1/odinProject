@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var wiki = require("./routes/users.js")
 
 var mongoDB = 'mongodb://127.0.0.1/my_database';  
 
@@ -40,6 +41,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
+app.use('/wiki', wiki);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
