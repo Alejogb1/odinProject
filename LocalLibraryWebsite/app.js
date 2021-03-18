@@ -30,14 +30,14 @@ var schema = new Schema(
     nested: { stuff: { type: String, lowercase: true, trim: true } }
   })
 
-var SomeModel = mongoose.model('SomeModel', SomeModelSchema );
+var SomeModel = mongoose.model('SomeModel', schema );
 
 
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var catalogRouter = require("./routes/catalog")
 var app = express();
 
 
@@ -55,7 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use("/catalog", catalogRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
