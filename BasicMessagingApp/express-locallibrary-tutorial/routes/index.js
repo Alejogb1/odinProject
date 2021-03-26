@@ -19,7 +19,17 @@ router.get('/', function(req, res, next) {
 });
 /* GET new message page. */
 router.get('/new', function(req, res, next) {
-  res.render('new', { title: 'New message page', messages: messages});
+  res.render('form', { title: 'New message page', messages: messages});
 });
+
+/* POST new message */
+
+router.post("/new", function(req, res) {
+  const author = req.body.author
+  const messageText = req.body.message
+  messages.push({text: messageText, user: author, added: new Date()});
+  res.redirect('/')
+})
+
 
 module.exports = router;
