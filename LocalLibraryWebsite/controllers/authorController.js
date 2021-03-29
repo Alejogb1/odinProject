@@ -20,7 +20,7 @@ exports.author_detail = function (req, res) {
 
  // Display update form GET
 
- exoprts.author_update_get = function(req, res) {
+ exports.author_update_get = function(req, res) {
      res.send("NOT IMPLEMENTED: Author update GET")
  }
 
