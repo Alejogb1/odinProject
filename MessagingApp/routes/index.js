@@ -15,11 +15,11 @@ const messages = [
 ];
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Message board',messages: messages });
 });
 /* GET new message page. */
 router.get('/new', function(req, res, next) {
-  res.render('form', { title: 'New message page', messages: messages});
+  res.render('form', { title: 'New message page'});
 });
 
 /* POST new message */
