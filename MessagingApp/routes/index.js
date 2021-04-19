@@ -24,14 +24,14 @@ router.get('/new', function(req, res, next) {
 });
 
 /* POST new message */
-
 router.post("/new", function(req, res) {
-  console.log(req.body.message, req.body.author)
+  console.log("BODY ", req.body)
   messages.push({
-    text: req.body.message, 
-    user: req.body.author, 
-    added: new Date()
+    text: req.body.description, 
+    user: req.body.username, 
+    added: "new Date()"
   });
+  console.log(messages)
   res.redirect('/')
 })
 

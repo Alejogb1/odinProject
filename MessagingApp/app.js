@@ -8,7 +8,7 @@ var app = express()
 
 var indexRouter = require("./routes/index")
 var newMsgRouter = require("./routes/index")
-
+app.use(express.json())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -33,7 +33,7 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
-  });
+});
 
 app.listen(8080)
 module.exports = app;
