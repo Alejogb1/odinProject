@@ -25,7 +25,8 @@ router.get('/new', function(req, res, next) {
 
 /* POST new message */
 router.post("/new", function(req, res) {
-  console.log("BODY ", req.body)
+  console.log(req.body.description)
+  console.log("JSON", req.is('json'))
   messages.push({
     text: req.body.description, 
     user: req.body.username, 

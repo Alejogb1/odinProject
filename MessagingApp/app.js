@@ -2,12 +2,14 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+//var bodyParser = require("body-parser")
 var logger = require('morgan');
 var pug = require("pug")
 var app = express()
 
 var indexRouter = require("./routes/index")
 var newMsgRouter = require("./routes/index")
+//app.use(express.bodyParser());
 app.use(express.json())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

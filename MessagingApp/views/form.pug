@@ -1,12 +1,8 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-
-main
-       section.form-container 
-            form(method='POST' action='/new')
-                textarea(name='description' placeholder='Pineapples belong on pizza and nobody can tell me otherwise!' cols='30' )
-                input(type='text' placeholder='Username' name='username' id='username')
-                button(type='submit' id='submit-btn')= 'post'
+html(lang='en')
+block login
+    form(id="login" action="/new" method="post")
+        input(type="text", name="username", value="", placeholder="Username")
+        br
+        input(type="text", name="description", value="", placeholder="description")
+        br
+        input(type="submit" value="Submit")
