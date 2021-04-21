@@ -1,11 +1,14 @@
 {
   "name": "bs",
+  "engines": { "node": "14.15.1" },
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start" : "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "web" : "node ./bin/www"
+
   },
   "keywords": [],
   "author": "",
