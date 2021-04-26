@@ -30,7 +30,7 @@ router.post("/new", function(req, res) {
   messages.push({
     text: req.body.description, 
     user: req.body.username, 
-    added: "new Date()"
+    added: new Date()
   });
   console.log(messages)
   res.redirect('/')
